@@ -1,4 +1,7 @@
-sudo: required
+language: node_js
+node_js: 
+  - "13"
+
 services:
   - docker
 
@@ -11,12 +14,12 @@ script:
 deploy:
   provider: elasticbeanstalk
   region: "us-east-2"
-  application: "docker-react"
+  app: "docker-react"
   env: "DockerReact-env"
   bucket_name: "elasticbeanstalk-us-east-2-769822921040"
-  bucket_path: "docker-react"
+  # bucket_path: "docker-react"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
-  secret_access:
+  secret_access_key:
     secure: $AWS_SECRET_KEY
