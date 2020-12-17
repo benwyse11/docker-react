@@ -5,7 +5,7 @@ before_install:
   - docker build -f dockerfile.dev -t benwyse11/docker-react .
 
 script:
-  - docker run benwyse11/docker-react npm run test -- --coverage
+  - docker run benwyse11/docker-react npm run test -- --coverage --watchAll=false
 
 deploy:
   provider: elasticbeanstalk
@@ -18,4 +18,4 @@ deploy:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_KEY
-  
+
